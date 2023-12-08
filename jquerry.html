@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+        <label for="stNum">Ogrenci No:</label>
+        <input type="number" id="stNum" name="stNum">
+        <label for="stName">Ogrenci Adı:</label>
+        <input type="text" id="stName" name="stName">
+        <label for="first">First Task:</label>
+        <input type="text" id="first" name="first">
+        <label for="second">Second Task:</label>
+        <input type="text" id="second" name="second">
+        <label for="final">Final Task:</label>
+        <input type="text" id="final" name="final">
+        <button type="button" id="addRec"> Kayıt Ekle </button>
+    </form>
+
+    <table style="width: 50%; margin-top: 5px;">
+        <thead>
+            <tr>
+                <th> Number </th>
+                <th> Name </th>
+                <th> First </th>
+                <th> Second </th>
+                <th> Final </th>
+                <th> Total </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <p id="avg"> </p>
+    <p id="max"> </p>
+
+    <script>
+        $(document).ready(function () {
+            let allTotal = 0;
+            let count = 0;
+            let maxNum = 0;
+            let average;
+            $("#addRec").click(function () {
+
+                let number = document.getElementById('stNum').value;
+                let stName = document.getElementById('stName').value;
+                let first = Number(document.getElementById('first').value);
+                let second = Number(document.getElementById('second').value);
+                let final = Number(document.getElementById('final').value);
+                let total = first + second + final;
+                if (total > maxNum) {
+                    maxNum = total;
+                }
+                allTotal += total;
+                count += 1;
+                average = allTotal / count;
+                console.log("allTotal: " + allTotal);
+                console.log("average: " + average);
+                console.log("max: " + maxNum);
+                let row = '<tr>';
+                if (total >= 60) {
+                    row += '<td>' + number + '</td>' +
+                        '<td>' + stName + '</td>' +
+                        '<td>' + first + '</td>' +
+                        '<td>' + second + '</td>' +
+                        '<td>' + final + '</td>' +
+                        '<td style="background-color:green;">' + total + '</td>';
+                    row += '</tr>';
+                }
+                else {
+                    row += '<td>' + number + '</td>' +
+                        '<td>' + stName + '</td>' +
+                        '<td>' + first + '</td>' +
+                        '<td>' + second + '</td>' +
+                        '<td>' + final + '</td>' +
+                        '<td style="background-color:red;">' + total + '</td>';
+                    row += '</tr>';
+                }
+
+                $('table> tbody:last').append(row);
+
+                $("#avg").text("Ortalama: " + average);
+                $("#max").text("En yuksek Not: " + maxNum);
+            });
+
+        });
+    </script>
+</body>
+
+</html>
