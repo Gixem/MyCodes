@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>JS Hesap Makinesi</title>
+	
+    <script >
+        function topla() {
+            var deger1 = parseInt(document.getElementById('sayi1').value);
+            var deger2 = parseInt(document.getElementById('sayi2').value);
+            document.getElementById('sonuc').value = deger1 + deger2;
+        }
+        function cikar() {
+            var deger1 = parseInt(document.getElementById('sayi1').value);
+            var deger2 = parseInt(document.getElementById('sayi2').value);
+            document.getElementById('sonuc').value = deger1 - deger2;
+        }
+        function carp() {
+            var deger1 = parseInt(document.getElementById('sayi1').value);
+            var deger2 = parseInt(document.getElementById('sayi2').value);
+            document.getElementById('sonuc').value = deger1 * deger2;
+        }
+        function bol() {
+            var deger1 = parseInt(document.getElementById('sayi1').value);
+            var deger2 = parseInt(document.getElementById('sayi2').value);
+            document.getElementById('sonuc').value = deger1 / deger2;
+        }
+    </script>
+	
+</head>
+
+<body style="background-color:grey">
+
+
+
+<center>
+<h1> <img src="hesap.png" alt="HesapMak" width="50px" height="50px">JAVASCRIPT HESAP MAKİNESİ</h1>
+<label for="fname">1.sayi</label><br>
+<input type="text" id="sayi1" /> 
+<br /> <br />
+<label for="fname">2.sayi</label><br>
+<input type="text" id="sayi2" />
+<br /> <br />
+
+<label for="fname">Yapacağınız işlemi seçiniz .. </label><br>
+
+<input type="button" value="Toplama +" id="topla" onclick="topla()" />
+<input type="button" value="Cıkarma -" id="fark" onclick="cikar()" />
+<input type="button" value="Çarpma  *" id="carp" onclick="carp()" />
+<input type="button" value="Bölme   /" id="bol" onclick="bol()" /><br /> <br />
+
+<label for="fname">İşlem Sonucu </label><br>
+
+<input type="text" id="sonuc" />
+
+</center>
+</body>
+
+</html>

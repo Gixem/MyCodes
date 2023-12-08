@@ -1,0 +1,18 @@
+
+   body{
+	   background-color:orange;
+	   text-align:center;
+   }
+
+    table{
+      background: gray;
+      margin:5px;
+      width: 100%;
+      color:#fff;
+    }
+    td,th{
+      border:1px solid white;
+      border-spacing: 0px;
+      margin: 0px;
+    }
+  
